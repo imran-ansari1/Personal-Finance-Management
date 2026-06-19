@@ -4,6 +4,7 @@ import { DB_NAME } from "../constant.js";
 
 dotenv.config();
 
+
 const connectDB = async () => {
   try {
     await mongoose.connect(process.env.MONGODB_URL, {
