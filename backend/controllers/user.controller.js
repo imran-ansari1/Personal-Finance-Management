@@ -77,8 +77,8 @@ const login_user = async (req, res) => {
 
     const isPasswordValid = await user.isPasswordCorrect(password);
 
-    console.log("Request Password:", password);
-console.log("Stored Hash:", user.password);
+//     console.log("Request Password:", password);
+// console.log("Stored Hash:", user.password);
 
     if (!isPasswordValid) {
       return res.status(401).json({
@@ -90,7 +90,7 @@ const { accessToken, refreshToken } =
 
 const options = {
   httpOnly: true,
-  secure: false, // localhost par false rakho
+  secure: false, 
 };
 
 return res
@@ -123,7 +123,14 @@ const logout_user = async (req, res) => {
     }); 
 }
 
+const getCurrentUser = (req, res) => {
+    return res.status(200).json({
+        success: true,
+        user: req.user,
+    });
+};
 
 
 
-export { createUser, login_user, logout_user };
+
+export { createUser, login_user, logout_user, getCurrentUser };
