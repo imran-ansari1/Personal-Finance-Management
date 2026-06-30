@@ -26,7 +26,9 @@ const LoginPage = () => {
     try {
          const res = await axios.post(
   `${process.env.NEXT_PUBLIC_API_URL}/login`,
-  formData
+  formData,{
+    withCredentials: true,
+  }
 );
 
       const data = res.data;

@@ -6,23 +6,35 @@ const userSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
+    trim: true
   },
   email: {
     type: String,
     required: true,
     unique: true,
+    trim: true
   },
   password: {
     type: String,
     required: true,
+    trim: true    
   },
   phoneNumber: {
     type: String,
     required: true,
+    trim: true
   },
    refreshToken: {
     type: String,
-  }
+    trim: true  
+  },
+  plaidAccessToken: {
+  type: String,
+},
+
+plaidItemId: {
+  type: String,
+},
 } , { timestamps: true });
 
 userSchema.pre("save", async function (next) {
